@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Sahid\Sudoku\Utility;
+namespace SahidJeurissen\Sudoku\Utility;
 
 
 /**

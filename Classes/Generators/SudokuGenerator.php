@@ -1,11 +1,10 @@
 <?php
 
 
-namespace Sahid\Sudoku\Generators;
+namespace SahidJeurissen\Sudoku\Generators;
 
 
-use Sahid\Sudoku\Utility\CellValidationUtility;
-use Sahid\Sudoku\Utility\SudokuValidationUtility;
+use SahidJeurissen\Sudoku\Utility\CellValidationUtility;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Output\OutputInterface;
 

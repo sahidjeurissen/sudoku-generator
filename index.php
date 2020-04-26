@@ -5,7 +5,7 @@ include_once 'vendor/autoload.php';
 $validSudoku = require './validSudoku.php';
 
 $application = new \Symfony\Component\Console\Application('generate');
-$command = new \Sahid\Sudoku\Commands\GenerateSudokuCommand();
+$command = new \SahidJeurissen\Sudoku\Commands\GenerateSudokuCommand();
 
 $application->add($command);
 $application->setDefaultCommand($command->getName(), true);

@@ -1,12 +1,12 @@
 <?php
 
 
-namespace Sahid\Sudoku\Utility;
+namespace SahidJeurissen\Sudoku\Utility;
 
 
 /**
  * Class SudokuValidationUtility
- * @package Sahid\Sudoku\Utility
+ * @package SahidJeurissen\Sudoku\Utility
  */
 class SudokuValidationUtility
 {

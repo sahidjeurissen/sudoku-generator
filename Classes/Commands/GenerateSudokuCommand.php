@@ -1,12 +1,11 @@
 <?php
 
 
-namespace Sahid\Sudoku\Commands;
+namespace SahidJeurissen\Sudoku\Commands;
 
 
-use Sahid\Sudoku\Generators\SudokuGenerator;
-use Sahid\Sudoku\Utility\CellValidationUtility;
-use Sahid\Sudoku\Utility\SudokuValidationUtility;
+use SahidJeurissen\Sudoku\Generators\SudokuGenerator;
+use SahidJeurissen\Sudoku\Utility\SudokuValidationUtility;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -34,7 +33,7 @@ class GenerateSudokuCommand extends Command
         $table->setRows($sudokuRender);
         $table->render();
 
-        $section->writeln('Sudoku valid: ' . SudokuValidationUtility::validate($sudoku));
+        $section->writeln('Sudoku valid: ' . (SudokuValidationUtility::validate($sudoku) ? 'Yes' : 'No'));
         $section->writeln('Generation time: ' . $event->getDuration() . 'ms');
 
 
