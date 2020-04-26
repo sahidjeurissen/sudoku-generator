@@ -1,7 +1,8 @@
 {
   "name": "sahid/sudoku",
   "require": {
-    "symfony/console": "^5.0"
+    "symfony/console": "^5.0",
+    "symfony/stopwatch": "^5.0"
   },
   "autoload": {
     "psr-4": {
