@@ -19,9 +19,9 @@ class SudokuGenerator
     protected $attemptCallback = null;
 
     /**
-     * @param mixed $attemptCallback
+     * @param AttemptInterface $attemptCallback
      */
-    public function setAttemptCallback($attemptCallback): void
+    public function setAttemptCallback(AttemptInterface $attemptCallback): void
     {
         $this->attemptCallback = $attemptCallback;
     }
