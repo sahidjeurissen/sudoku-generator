@@ -42,8 +42,11 @@ class AttemptOutputUtility implements AttemptInterface
 
         $table->setRows(array_chunk(array_pad($sudoku, 81, 0), 9));
         $table->render();
+        if ($this->output->isDebug()) {
+            usleep(100000);
+        }
 
-        if(count($sudoku) > 80){
+        if (count($sudoku) > 80) {
             $this->section->clear();
         }
     }
