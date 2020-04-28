@@ -13,10 +13,22 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
 
+/**
+ * Class GenerateSudokuCommand
+ * @package SahidJeurissen\Sudoku\Commands
+ */
 class GenerateSudokuCommand extends Command
 {
+    /**
+     * @var string
+     */
     protected static $defaultName = 'app:generate';
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $stopwatch = new Stopwatch();

@@ -2,6 +2,10 @@
 
 namespace SahidJeurissen\Sudoku\Interfaces;
 
+/**
+ * Interface AttemptInterface
+ * @package SahidJeurissen\Sudoku\Interfaces
+ */
 interface AttemptInterface
 {
     /**

@@ -6,8 +6,11 @@ namespace SahidJeurissen\Sudoku\Generators;
 
 use SahidJeurissen\Sudoku\Interfaces\AttemptInterface;
 use SahidJeurissen\Sudoku\Validators\CellValidator;
-use Symfony\Component\Console\Helper\Table;
 
+/**
+ * Class SudokuGenerator
+ * @package SahidJeurissen\Sudoku\Generators
+ */
 class SudokuGenerator
 {
     /**
@@ -24,6 +27,9 @@ class SudokuGenerator
     }
 
 
+    /**
+     * @return array
+     */
     public function generate()
     {
         $sudoku = [];
