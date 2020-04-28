@@ -4,21 +4,23 @@
 namespace SahidJeurissen\Sudoku\Generators;
 
 
-use SahidJeurissen\Sudoku\Utility\CellValidationUtility;
+use SahidJeurissen\Sudoku\Interfaces\AttemptInterface;
+use SahidJeurissen\Sudoku\Validators\CellValidator;
 use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Output\OutputInterface;
 
 class SudokuGenerator
 {
-    protected $output;
+    /**
+     * @var AttemptInterface
+     */
+    protected $attemptCallback = null;
 
     /**
-     * SudokuGenerator constructor.
-     * @param $output
+     * @param mixed $attemptCallback
      */
-    public function __construct(OutputInterface $output)
+    public function setAttemptCallback($attemptCallback): void
     {
-        $this->output = $output;
+        $this->attemptCallback = $attemptCallback;
     }
 
 
@@ -41,9 +43,11 @@ class SudokuGenerator
                     });
 
                 $tmpSudoku = array_merge($sudoku, [$unattemptedNumber]);
-                $this->outputCurrentAttempt($tmpSudoku);
+                if ($this->attemptCallback) {
+                    $this->attemptCallback->execute($tmpSudoku);
+                }
 
-                if (CellValidationUtility::validate($tmpSudoku, count($tmpSudoku) - 1)) {
+                if (CellValidator::validate($tmpSudoku, count($tmpSudoku) - 1)) {
                     $sudoku[] = $unattemptedNumber;
                     $added = true;
                     break;
@@ -57,19 +61,5 @@ class SudokuGenerator
         }
 
         return $sudoku;
-    }
-
-    private function outputCurrentAttempt($sudoku)
-    {
-        $section = $this->output->section();
-        $table = new Table($section);
-
-        $sudoku = array_chunk(array_pad($sudoku, 81, 0), 9);
-        $table->setRows($sudoku);
-        $table->render();
-
-        if (count($sudoku) < 81) {
-            $section->clear();
-        }
     }
 }

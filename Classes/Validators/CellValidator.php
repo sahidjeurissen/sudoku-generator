@@ -1,14 +1,14 @@
 <?php
 
 
-namespace SahidJeurissen\Sudoku\Utility;
+namespace SahidJeurissen\Sudoku\Validators;
 
 
 /**
- * Class CellValidationUtility
- * @package Sahid\Sudoku\Utility
+ * Class CellValidator
+ * @package Sahid\Sudoku\Validators
  */
-class CellValidationUtility
+class CellValidator
 {
     /**
      * @var array

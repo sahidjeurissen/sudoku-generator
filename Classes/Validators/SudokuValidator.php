@@ -1,14 +1,14 @@
 <?php
 
 
-namespace SahidJeurissen\Sudoku\Utility;
+namespace SahidJeurissen\Sudoku\Validators;
 
 
 /**
- * Class SudokuValidationUtility
- * @package SahidJeurissen\Sudoku\Utility
+ * Class SudokuValidator
+ * @package SahidJeurissen\Sudoku\Validators
  */
-class SudokuValidationUtility
+class SudokuValidator
 {
     /**
      * @param array $sudoku
