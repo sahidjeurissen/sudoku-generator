@@ -8,7 +8,7 @@ namespace SahidJeurissen\Sudoku\Validators;
  * Class CellValidator
  * @package Sahid\Sudoku\Validators
  */
-class CellValidator
+class CellValidator extends BaseValidator
 {
     /**
      * @var array
@@ -52,7 +52,7 @@ class CellValidator
      * @param int $index
      * @return bool
      */
-    public static function validateHorizontal(array $sudoku, int $index): bool
+    private static function validateHorizontal(array $sudoku, int $index): bool
     {
         $y = (int)floor($index / 9);
 
@@ -68,7 +68,7 @@ class CellValidator
      * @param int $index
      * @return bool
      */
-    public static function validateVertical(array $sudoku, int $index): bool
+    private static function validateVertical(array $sudoku, int $index): bool
     {
         $x = $index % 9;
 
@@ -84,7 +84,7 @@ class CellValidator
      * @param int $index
      * @return bool
      */
-    public static function validateChunk(array $sudoku, int $index): bool
+    private static function validateChunk(array $sudoku, int $index): bool
     {
         $currentChunk = array_filter(self::$chunkMap, function ($chunk) use ($index) {
             return in_array($index, $chunk);
@@ -110,16 +110,4 @@ class CellValidator
         return $sudoku[$x + 9 * $y] ?? null;
     }
 
-    /**
-     * @param array $array
-     * @return bool
-     */
-    public static function containsDuplicates(array $array): bool
-    {
-        $array = array_filter($array);
-
-        return !empty(array_filter(array_count_values($array), function ($count) {
-            return $count > 1;
-        }));
-    }
 }

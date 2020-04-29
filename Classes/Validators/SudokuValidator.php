@@ -8,7 +8,7 @@ namespace SahidJeurissen\Sudoku\Validators;
  * Class SudokuValidator
  * @package SahidJeurissen\Sudoku\Validators
  */
-class SudokuValidator
+class SudokuValidator extends BaseValidator
 {
     /**
      * @param array $sudoku
@@ -103,16 +103,5 @@ class SudokuValidator
         }
 
         return true;
-    }
-
-    /**
-     * @param array $array
-     * @return bool
-     */
-    private static function containsDuplicates(array $array): bool
-    {
-        return !empty(array_filter(array_count_values($array), function ($count) {
-            return $count > 1;
-        }));
     }
 }
