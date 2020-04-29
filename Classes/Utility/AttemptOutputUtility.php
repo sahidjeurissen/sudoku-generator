@@ -29,15 +29,22 @@ class AttemptOutputUtility implements AttemptInterface
     public function __construct(OutputInterface $output)
     {
         $this->output = $output;
+        /**
+         * @phpstan-ignore-next-line
+         */
         $this->section = $this->output->section();
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
+     * @return void
      */
-    public function execute(array $sudoku)
+    public function execute(array $sudoku): void
     {
         $table = new Table($this->section);
+        /**
+         * @phpstan-ignore-next-line
+         */
         $this->section->clear();
 
         $table->setRows(array_chunk(array_pad($sudoku, 81, 0), 9));
@@ -47,6 +54,9 @@ class AttemptOutputUtility implements AttemptInterface
         }
 
         if (count($sudoku) > 80) {
+            /**
+             * @phpstan-ignore-next-line
+             */
             $this->section->clear();
         }
     }

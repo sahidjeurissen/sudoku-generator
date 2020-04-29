@@ -15,10 +15,14 @@ class SudokuValidatorTest extends TestCase
 {
 
     /**
+     * @param array<int> $sudoku
+     * @param bool $expected
+     *
      * @dataProvider validateHorizontalsDataProvider
+     * @return void
      * @throws \ReflectionException
      */
-    public function testValidateHorizontals($sudoku, $expected)
+    public function testValidateHorizontals(array $sudoku, bool $expected): void
     {
         $reflection = new \ReflectionClass(SudokuValidator::class);
         $method = $reflection->getMethod('validateHorizontals');
@@ -28,10 +32,14 @@ class SudokuValidatorTest extends TestCase
     }
 
     /**
+     * @param array<int> $sudoku
+     * @param bool $expected
+     *
      * @dataProvider validateVerticalsDataProvider
+     * @return void
      * @throws \ReflectionException
      */
-    public function testValidateVerticals($sudoku, $expected)
+    public function testValidateVerticals(array $sudoku, bool $expected): void
     {
         $reflection = new \ReflectionClass(SudokuValidator::class);
         $method = $reflection->getMethod('validateVerticals');
@@ -41,10 +49,14 @@ class SudokuValidatorTest extends TestCase
     }
 
     /**
+     * @param array<int> $sudoku
+     * @param bool $expected
+     *
      * @dataProvider validateChunksDataProvider
+     * @return void
      * @throws \ReflectionException
      */
-    public function testValidateChunks($sudoku, $expected)
+    public function testValidateChunks(array $sudoku, bool $expected): void
     {
         $reflection = new \ReflectionClass(SudokuValidator::class);
         $method = $reflection->getMethod('validateChunks');
@@ -54,15 +66,19 @@ class SudokuValidatorTest extends TestCase
     }
 
     /**
+     * @param array<int> $sudoku
+     * @param bool $expected
+     *
      * @dataProvider validateDataProvider
+     * @return void
      */
-    public function testValidate($sudoku, $expected)
+    public function testValidate(array $sudoku, bool $expected): void
     {
         $this->assertEquals($expected, SudokuValidator::validate($sudoku));
     }
 
     /**
-     * @return array
+     * @return array<array>
      */
     public function validateHorizontalsDataProvider()
     {
@@ -93,16 +109,37 @@ class SudokuValidatorTest extends TestCase
     }
 
     /**
-     * @return array
+     * @return array<array>
      */
     public function validateVerticalsDataProvider()
     {
+        /**
+         * @var array<int> $fullValidSudoku
+         */
         $fullValidSudoku = require(__DIR__ . '/data/fullValidSudoku.php');
+        /**
+         * @var array<int> $fullInvalidSudoku
+         */
         $fullInvalidSudoku = require(__DIR__ . '/data/fullInvalidSudoku.php');
+        /**
+         * @var array<int> $partialValidSudoku
+         */
         $partialValidSudoku = require(__DIR__ . '/data/partialValidSudoku.php');
+        /**
+         * @var array<int> $partialInvalidSudoku
+         */
         $partialInvalidSudoku = require(__DIR__ . '/data/partialInvalidSudoku.php');
+        /**
+         * @var array<int> $partialInvalidSudokuVertical
+         */
         $partialInvalidSudokuVertical = require(__DIR__ . '/data/partialInvalidSudokuVertical.php');
+        /**
+         * @var array<int> $partialInvalidSudokuHorizontal
+         */
         $partialInvalidSudokuHorizontal = require(__DIR__ . '/data/partialInvalidSudokuHorizontal.php');
+        /**
+         * @var array<int> $partialInvalidSudokuChunk
+         */
         $partialInvalidSudokuChunk = require(__DIR__ . '/data/partialInvalidSudokuChunk.php');
 
         return [
@@ -124,7 +161,7 @@ class SudokuValidatorTest extends TestCase
     }
 
     /**
-     * @return array
+     * @return array<array>
      */
     public function validateChunksDataProvider()
     {
@@ -155,7 +192,7 @@ class SudokuValidatorTest extends TestCase
     }
 
     /**
-     * @return array
+     * @return array<array>
      */
     public function validateDataProvider()
     {

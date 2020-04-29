@@ -15,10 +15,15 @@ class BaseValidatorTest extends TestCase
 {
 
     /**
+     * @param array<int|null> $sudoku
+     * @param bool $expected
+     *
      * @dataProvider containsDuplicatesDataProvider
+     *
+     * @return void
      * @throws \ReflectionException
      */
-    public function testContainsDuplicates($sudoku, $expected)
+    public function testContainsDuplicates(array $sudoku, bool $expected): void
     {
         $reflection = new \ReflectionClass(BaseValidator::class);
         $method = $reflection->getMethod('containsDuplicates');
@@ -28,7 +33,7 @@ class BaseValidatorTest extends TestCase
     }
 
     /**
-     * @return array
+     * @return array<array>
      */
     public function containsDuplicatesDataProvider()
     {

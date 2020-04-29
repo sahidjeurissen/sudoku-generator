@@ -9,7 +9,8 @@ namespace SahidJeurissen\Sudoku\Interfaces;
 interface AttemptInterface
 {
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
+     * @return void
      */
-    public function execute(array $sudoku);
+    public function execute(array $sudoku): void;
 }

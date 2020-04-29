@@ -24,7 +24,10 @@ class SudokuGeneratorTest extends TestCase
         $this->sudokuGenerator = new SudokuGenerator();
     }
 
-    public function testGenerateValidity()
+    /**
+     * @return void
+     */
+    public function testGenerateValidity(): void
     {
         $sudoku = $this->sudokuGenerator->generate();
 
@@ -61,16 +64,21 @@ class SudokuGeneratorTest extends TestCase
     }
 
     /**
+     * @param int $seed
+     * @param array<int> $expected
+     *
      * @dataProvider generateBySeedsDataProvider
+     *
+     * @return void
      */
-    public function testGenerateBySeeds($seed, $expected)
+    public function testGenerateBySeeds(int $seed, array $expected): void
     {
         srand($seed);
         $this->assertEquals($expected, $this->sudokuGenerator->generate());
     }
 
     /**
-     * @return array
+     * @return array<array>
      */
     public function generateBySeedsDataProvider()
     {

@@ -11,7 +11,7 @@ namespace SahidJeurissen\Sudoku\Validators;
 class SudokuValidator extends BaseValidator
 {
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @return bool
      */
     public static function validate(array $sudoku)
@@ -33,7 +33,7 @@ class SudokuValidator extends BaseValidator
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @return bool
      */
     private static function validateHorizontals(array $sudoku): bool
@@ -50,7 +50,7 @@ class SudokuValidator extends BaseValidator
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @return bool
      */
     private static function validateVerticals(array $sudoku): bool
@@ -71,7 +71,7 @@ class SudokuValidator extends BaseValidator
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @return bool
      */
     private static function validateChunks(array $sudoku): bool

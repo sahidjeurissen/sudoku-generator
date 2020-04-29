@@ -11,7 +11,7 @@ namespace SahidJeurissen\Sudoku\Validators;
 class CellValidator extends BaseValidator
 {
     /**
-     * @var array
+     * @var array<array>
      */
     private static $chunkMap = [
         [0, 1, 2, 9, 10, 11, 18, 19, 20],
@@ -26,7 +26,7 @@ class CellValidator extends BaseValidator
     ];
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @param int $index
      * @return bool
      */
@@ -48,7 +48,7 @@ class CellValidator extends BaseValidator
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @param int $index
      * @return bool
      */
@@ -64,7 +64,7 @@ class CellValidator extends BaseValidator
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @param int $index
      * @return bool
      */
@@ -80,7 +80,7 @@ class CellValidator extends BaseValidator
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @param int $index
      * @return bool
      */
@@ -100,7 +100,7 @@ class CellValidator extends BaseValidator
     }
 
     /**
-     * @param array $sudoku
+     * @param array<int> $sudoku
      * @param int $x
      * @param int $y
      * @return int

@@ -45,6 +45,10 @@ class GenerateSudokuCommand extends Command
         $sudoku = $sudokuGenerator->generate();
         $event = $stopwatch->stop('generation');
 
+        /**
+         * @phpstan-ignore-next-line
+         * TODO: Check if $output->section() can be made certain to exist to fix phpstan error
+         */
         $section = $output->section();
         $table = new Table($section);
 

@@ -14,7 +14,7 @@ use SahidJeurissen\Sudoku\Validators\CellValidator;
 class SudokuGenerator
 {
     /**
-     * @var AttemptInterface
+     * @var AttemptInterface | null
      */
     protected $attemptCallback = null;
 
@@ -28,7 +28,7 @@ class SudokuGenerator
 
 
     /**
-     * @return array
+     * @return array<int>
      */
     public function generate()
     {

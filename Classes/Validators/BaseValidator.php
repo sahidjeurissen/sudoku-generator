@@ -11,7 +11,7 @@ namespace SahidJeurissen\Sudoku\Validators;
 class BaseValidator
 {
     /**
-     * @param array $array
+     * @param array<int|null> $array
      * @return bool
      */
     protected static function containsDuplicates(array $array): bool
